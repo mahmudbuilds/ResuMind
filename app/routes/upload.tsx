@@ -6,6 +6,7 @@ import { usePuterStore } from "~/lib/puter";
 import { convertPdfToImage } from "~/lib/pdf2img";
 import { generateUUID } from "~/lib/utils";
 import { prepareInstructions } from "constants/index";
+import { useNavigate } from "react-router";
 
 export default function Upload() {
   const { auth, isLoading, fs, ai, kv } = usePuterStore();
@@ -13,6 +14,7 @@ export default function Upload() {
   const [statusText, setStatusText] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const handleFileSelect = (file: File | null) => {
     setFile(file);
@@ -78,6 +80,7 @@ export default function Upload() {
     setStatusText("Resume analyzed successfully, redirecting...");
 
     console.log(data);
+    navigate(`/resume/${uuid}`);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
