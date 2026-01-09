@@ -9,7 +9,7 @@
 
 **Stop guessing, start getting hired. ResuMind decodes the "black box" of ATS systems to give you a competitive edge.**
 
-[Live Demo](#) · [Report Bug](https://github.com/mahx-code/Resumind/issues) · [Request Feature](https://github.com/mahx-code/Resumind/issues)
+[**🚀 Live Demo**](https://resumind-khaki.vercel.app/) · [Report Bug](https://github.com/mahx-code/Resumind/issues) · [Request Feature](https://github.com/mahx-code/Resumind/issues)
 
 </div>
 
@@ -40,7 +40,7 @@ ResuMind analyzes your document's structure, keyword density, and formatting to 
 * **Actionable Tips:** Not just scores, but specific "Fix-it" instructions for your bullet points.
 
 ### **3. Privacy-First Experience**
-* **Puter.js Integration:** Secure, decentralized authentication and cloud storage.
+* **Puter.js Integration:** Secure, decentralized authentication and cloud storage via [Puter.com](https://puter.com).
 * **Local Processing:** PDF text extraction happens in the browser to ensure maximum data privacy.
 
 ---
@@ -50,21 +50,19 @@ ResuMind analyzes your document's structure, keyword density, and formatting to 
 | Layer | Technologies |
 | :--- | :--- |
 | **Frontend** | React 19, TypeScript, TailwindCSS 4, Lucide Icons |
-| **Routing/SSR**| React Router 7 (Framework Mode) |
+| **Routing/SSR**| [React Router 7](https://reactrouter.com/) (Framework Mode) |
 | **State** | Zustand (Global) & React Hooks (Local) |
 | **Parsing** | PDF.js (Client-side extraction) |
-| **Backend/Auth** | Puter.js (Auth & Cloud KV Store) |
-| **Deployment** | Docker, Vite, Node.js |
+| **Backend/Auth** | [Puter.js](https://puter.com/docs/puter-js) (Auth & Cloud KV Store) |
+| **Deployment** | Docker, Vite, [Vercel](https://resumind-khaki.vercel.app/) |
 
 ---
 
 ## ⚙️ **How It Works**
 
-
-
-1.  **Ingestion:** The user uploads a PDF. `react-dropzone` handles the UI, while `pdfjs-dist` extracts the raw text.
-2.  **Analysis:** The text is processed via our AI logic to identify entities (dates, job titles, skills).
-3.  **Scoring:** The system runs a multi-pass check against common ATS rejection triggers (poor formatting, missing sections, low keyword density).
+1.  **Ingestion:** The user uploads a PDF via the drag-and-drop interface. `pdfjs-dist` extracts the raw text directly in the browser.
+2.  **Analysis:** The extracted text is processed via AI logic to identify core entities such as job titles, dates, and technical skills.
+3.  **Scoring:** The system runs a multi-pass check against common ATS rejection triggers like poor formatting, missing sections, or low keyword density.
 4.  **Reporting:** Results are visualized through custom-built React components like `ScoreGauge` and `Details`.
 
 ---
