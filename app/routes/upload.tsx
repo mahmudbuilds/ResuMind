@@ -8,6 +8,14 @@ import { generateUUID } from "~/lib/utils";
 import { prepareInstructions } from "constants/index";
 import { useNavigate } from "react-router";
 
+export const meta = () => [
+  { title: "Upload Resume" },
+  {
+    name: "description",
+    content: "Drop your resume for an ATS score and improvement tips",
+  },
+];
+
 export default function Upload() {
   const { auth, isLoading, fs, ai, kv } = usePuterStore();
   const [isProcessing, setIsProcessing] = useState(false);
