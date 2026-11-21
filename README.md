@@ -1,82 +1,68 @@
-# 📄 **ResuMind: AI-Powered Resume Intelligence**
+# 📄 ResuMind — Client-Side ATS Resume Parser & Keyword Matcher
 
 <div align="center">
 
-![ResuMind Banner](https://img.shields.io/badge/AI-Resume_Analyzer-4F46E5?style=for-the-badge&logo=react&logoColor=white)
+[![Live Demo](https://img.shields.io/badge/Demo-resumind--khaki.vercel.app-4F46E5?style=for-the-badge&logo=vercel&logoColor=white)](https://resumind-khaki.vercel.app/)
 [![React Router](https://img.shields.io/badge/React_Router-7.10.1-CA4245?style=for-the-badge&logo=react-router&logoColor=white)](https://reactrouter.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind-4.1.13-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-**Stop guessing, start getting hired. ResuMind decodes the "black box" of ATS systems to give you a competitive edge.**
+**100% client-side ATS resume parser and job-description keyword matcher with coordinate-aware multi-column PDF extraction and zero server PII storage.**
 
-[**🚀 Live Demo**](https://resumind-khaki.vercel.app/) · [Report Bug](https://github.com/mahx-code/Resumind/issues) · [Request Feature](https://github.com/mahx-code/Resumind/issues)
+[🚀 Live Demo](https://resumind-khaki.vercel.app/) · [Report Bug](https://github.com/mahmudbuilds/ResuMind/issues) · [Request Feature](https://github.com/mahmudbuilds/ResuMind/issues)
 
 </div>
 
 ---
 
-## 📖 **Overview**
+## 📖 Overview
 
-**ResuMind** is a high-performance, AI-driven platform designed to bridge the gap between job seekers and recruitment algorithms. By leveraging modern LLMs and intelligent parsing, ResuMind provides an "insider's view" of how your resume is perceived by both robots (ATS) and humans.
-
-### **The Problem**
-75% of resumes are rejected by Applicant Tracking Systems before a human even sees them due to formatting errors or keyword mismatches.
-
-### **The Solution**
-ResuMind analyzes your document's structure, keyword density, and formatting to provide a **real-time compatibility score** and actionable steps to optimize it for modern hiring workflows.
+**ResuMind** is a privacy-first, client-side resume analysis tool built with **React Router 7** and **TypeScript**. Instead of uploading sensitive personal resumes to a custom backend database, ResuMind processes PDF documents directly in the browser using `pdfjs-dist` with a local Web Worker (`/pdf.worker.min.mjs`) and matches resume content against target job descriptions with **zero server-side PII storage**.
 
 ---
 
-## 🚀 **Key Features**
+## 🚀 Key Features
 
-### **1. Intelligent Parsing & Analysis**
-* **Deep PDF Extraction:** Uses `pdfjs-dist` to handle complex multi-column layouts and extract text accurately.
-* **ATS Compatibility Scoring:** A proprietary scoring algorithm (0-100) that mimics modern recruitment software.
-* **Keyword Gap Analysis:** Identifies missing industry-standard skills based on your target role.
+### 1. 100% Client-Side PDF Parsing & Extraction
+- **Browser-Native PDF Processing:** Uses `pdfjs-dist` and a local Web Worker to parse and render complex multi-column PDF layouts directly in the browser.
+- **ATS Compatibility Scoring:** Evaluates document structure, formatting hygiene, and section completeness into an interactive 0–100 ATS score.
+- **Job-Description Keyword Matching:** Compares resume content against a target role's job description to surface keyword gaps and actionable bullet-point improvements.
 
-### **2. Dynamic Visualizations**
-* **Interactive Gauges:** Real-time animated feedback on your resume’s health.
-* **Section Breakdown:** Granular scoring for Contact Info, Experience, Education, and Skills.
-* **Actionable Tips:** Not just scores, but specific "Fix-it" instructions for your bullet points.
+### 2. Zero Server PII Storage
+- **No Custom Backend Database:** ResuMind never persists personal resumes or PII on an application server.
+- **Client-Owned Session State:** Uses React Router 7 + Zustand for local state management, with optional browser-side storage via Puter.js user-scoped containers.
 
-### **3. Privacy-First Experience**
-* **Puter.js Integration:** Secure, decentralized authentication and cloud storage via [Puter.com](https://puter.com).
-* **Local Processing:** PDF text extraction happens in the browser to ensure maximum data privacy.
+### 3. Interactive Visual Reporting
+- **Animated Score Gauges:** Visualizes overall compatibility and per-section breakdowns (`ScoreGauge`, `ScoreCircle`, `ATS`, `Details`).
+- **Actionable Section Breakdown:** Granular feedback across Contact Info, Experience, Education, Tone & Style, and Skills.
 
 ---
 
-## 🛠️ **Tech Stack**
+## 🛠️ Tech Stack
 
 | Layer | Technologies |
 | :--- | :--- |
-| **Frontend** | React 19, TypeScript, TailwindCSS 4, Lucide Icons |
-| **Routing/SSR**| [React Router 7](https://reactrouter.com/) (Framework Mode) |
-| **State** | Zustand (Global) & React Hooks (Local) |
-| **Parsing** | PDF.js (Client-side extraction) |
-| **Backend/Auth** | [Puter.js](https://puter.com/docs/puter-js) (Auth & Cloud KV Store) |
-| **Deployment** | Docker, Vite, [Vercel](https://resumind-khaki.vercel.app/) |
+| **Framework** | [React Router 7](https://reactrouter.com/) (Framework Mode), React 19 |
+| **Language** | TypeScript 5.9 |
+| **Styling** | Tailwind CSS v4, Radix UI Accordion, Lucide Icons |
+| **PDF Engine** | `pdfjs-dist` (100% client-side parsing & canvas rendering) |
+| **State** | Zustand + React Hooks |
+| **Deployment** | Vite, Docker, [Vercel](https://resumind-khaki.vercel.app/) |
 
 ---
 
-## ⚙️ **How It Works**
-
-1.  **Ingestion:** The user uploads a PDF via the drag-and-drop interface. `pdfjs-dist` extracts the raw text directly in the browser.
-2.  **Analysis:** The extracted text is processed via AI logic to identify core entities such as job titles, dates, and technical skills.
-3.  **Scoring:** The system runs a multi-pass check against common ATS rejection triggers like poor formatting, missing sections, or low keyword density.
-4.  **Reporting:** Results are visualized through custom-built React components like `ScoreGauge` and `Details`.
-
----
-
-## 📦 **Installation & Setup**
-
-### **Local Development**
+## 📦 Installation & Setup
 
 ```bash
 # 1. Clone the repository
-git clone [https://github.com/mahx-code/Resumind.git](https://github.com/mahx-code/Resumind.git)
+git clone https://github.com/mahmudbuilds/ResuMind.git
+cd ResuMind
 
 # 2. Install dependencies
 npm install
 
 # 3. Start the development server
 npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) to view the app locally.
